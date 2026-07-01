@@ -13,7 +13,8 @@ const SKINS = [
   { title: "Lunar Beast", desc: "福牛守护者", date: "2021-02", img: "/skins/lunarbeast.jpg" },
   { title: "EDG", desc: "EDG 冠军皮肤", date: "2022-05", img: "/skins/edg.jpg" },
   { title: "Spirit Blossom", desc: "灵魂莲华", date: "2022-10", img: "/skins/spiritblossom.jpg" },
-  { title: "HEARTSTEEL", desc: "心之钢", date: "2023-11", img: "/skins/heartsteel.jpg" }
+  { title: "HEARTSTEEL", desc: "心之钢", date: "2023-11", img: "/skins/heartsteel.jpg" },
+  { title: "Prestige Spirit Blossom Springs", desc: "至臻 灵魂莲华温泉", date: "2025-07", img: "/skins/Aphelios_PrestigeSpiritBlossomSpringsSkin.jpg" }
 ];
 
 export default function GalleryPage() {
@@ -33,7 +34,7 @@ export default function GalleryPage() {
     <div className="relative min-h-screen flex flex-col items-center justify-start p-8 md:p-16 overflow-y-auto">
       <div className="z-10 max-w-6xl w-full flex flex-col gap-10 pb-32 mt-12">
         <Link href="/" className="text-[var(--color-moon)] opacity-50 hover:opacity-100 transition-opacity font-sans w-fit tracking-widest">&larr; 返回圣所 (Back to Sanctuary)</Link>
-        
+
         <div className="flex flex-col gap-2">
           <h1 className="font-serif text-5xl md:text-7xl text-[var(--weapon-color)] drop-shadow-[0_0_15px_var(--weapon-glow)] transition-colors duration-700">皮肤图鉴</h1>
           <h2 className="font-sans text-xl tracking-widest text-white/60">COLLECTION (SKINS)</h2>
@@ -41,14 +42,14 @@ export default function GalleryPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {SKINS.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               onClick={() => setSelectedIdx(i)}
               className="group relative aspect-video bg-black/40 rounded-xl border border-[var(--color-moon)]/10 flex flex-col items-center justify-center overflow-hidden hover:border-[var(--weapon-color)] transition-all duration-500 shadow-lg cursor-pointer transform hover:-translate-y-2"
             >
               <Image src={item.img} alt={item.title} fill className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 mix-blend-luminosity group-hover:mix-blend-normal" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
+
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                 <div className="flex flex-col">
                   <span className="text-white font-serif text-xl tracking-wider z-10 drop-shadow-md">{item.title}</span>
@@ -63,7 +64,7 @@ export default function GalleryPage() {
 
       <AnimatePresence>
         {selectedIdx !== null && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -78,7 +79,7 @@ export default function GalleryPage() {
               <ChevronLeft className="w-6 h-6 md:w-12 md:h-12" />
             </button>
 
-            <motion.div 
+            <motion.div
               key={selectedIdx}
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -88,7 +89,7 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image src={SKINS[selectedIdx].img} alt={SKINS[selectedIdx].title} fill className="object-contain" priority />
-              
+
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
                 <h3 className="text-4xl md:text-5xl font-serif text-white tracking-widest mb-2">{SKINS[selectedIdx].title}</h3>
                 <p className="text-[var(--weapon-color)] text-lg tracking-widest">{SKINS[selectedIdx].desc} <span className="text-white/40 ml-4 font-mono text-sm">{SKINS[selectedIdx].date}</span></p>
