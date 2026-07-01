@@ -3,15 +3,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeapon, WeaponId } from "@/context/WeaponContext";
-import { Crosshair, ShieldAlert, CircleDot, Flame, PlusCircle, X } from "lucide-react";
+import { X } from "lucide-react";
+import Image from "next/image";
 
-// Lucide icons as placeholders for the weapons
-const WEAPONS: { id: WeaponId; name: string; icon: React.ReactNode }[] = [
-  { id: "calibrum", name: "通碧 (Calibrum)", icon: <Crosshair size={24} /> },
-  { id: "severum", name: "断魄 (Severum)", icon: <ShieldAlert size={24} /> },
-  { id: "gravitum", name: "坠明 (Gravitum)", icon: <CircleDot size={24} /> },
-  { id: "infernum", name: "荧焰 (Infernum)", icon: <Flame size={24} /> },
-  { id: "crescendum", name: "折镜 (Crescendum)", icon: <PlusCircle size={24} /> },
+// Official HUD icons for the weapons downloaded from CommunityDragon
+const WEAPONS: { id: WeaponId; name: string; icon: string }[] = [
+  { id: "calibrum", name: "通碧 (Calibrum)", icon: "/weapons/calibrum.png" },
+  { id: "severum", name: "断魄 (Severum)", icon: "/weapons/severum.png" },
+  { id: "gravitum", name: "坠明 (Gravitum)", icon: "/weapons/gravitum.png" },
+  { id: "infernum", name: "荧焰 (Infernum)", icon: "/weapons/infernum.png" },
+  { id: "crescendum", name: "折镜 (Crescendum)", icon: "/weapons/crescendum.png" },
 ];
 
 export default function WeaponSelector() {
@@ -94,7 +95,17 @@ export default function WeaponSelector() {
                 {weapon.name}
               </div>
 
-              {weapon.icon}
+              <Image
+                src={weapon.icon}
+                alt={weapon.name}
+                width={28}
+                height={28}
+                priority
+                className={`object-contain transition-all duration-500
+                  ${isActive 
+                    ? "opacity-100 grayscale-0 scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" 
+                    : "opacity-45 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"}`}
+              />
             </motion.button>
           );
         })}
@@ -133,7 +144,21 @@ export default function WeaponSelector() {
                   {weapon.name}
                 </div>
 
-                {showCloseIcon ? <X size={20} /> : weapon.icon}
+                {showCloseIcon ? (
+                  <X size={20} />
+                ) : (
+                  <Image
+                    src={weapon.icon}
+                    alt={weapon.name}
+                    width={24}
+                    height={24}
+                    priority
+                    className={`object-contain transition-all duration-500
+                      ${isActive 
+                        ? "opacity-100 grayscale-0 scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" 
+                        : "opacity-45 grayscale"}`}
+                  />
+                )}
               </motion.button>
             );
           })}
