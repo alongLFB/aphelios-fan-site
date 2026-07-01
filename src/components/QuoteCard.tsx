@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeapon } from "@/context/WeaponContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const QUOTES = [
   { en: "I am with you.", zh: "我与你同在。" },
@@ -18,10 +18,11 @@ export default function QuoteCard() {
   const { currentWeapon } = useWeapon();
   const [quoteIndex, setQuoteIndex] = useState(0);
 
-  // Cycle quotes occasionally or when weapon changes
-  useEffect(() => {
+  const [prevWeapon, setPrevWeapon] = useState(currentWeapon);
+  if (currentWeapon !== prevWeapon) {
+    setPrevWeapon(currentWeapon);
     setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
-  }, [currentWeapon]);
+  }
 
   const quote = QUOTES[quoteIndex];
 
@@ -37,7 +38,7 @@ export default function QuoteCard() {
       >
         <div className="flex flex-col gap-2">
           <p className="text-[var(--color-moon)] font-serif italic tracking-wider text-xl md:text-2xl text-glow font-light">
-            "{quote.en}"
+            &ldquo;{quote.en}&rdquo;
           </p>
           <p className="text-white/80 font-sans tracking-widest text-lg md:text-xl text-glow">
             “{quote.zh}”

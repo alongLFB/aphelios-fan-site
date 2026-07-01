@@ -59,7 +59,7 @@ export default function AudioPage() {
         
         <div className="flex flex-col gap-2">
           <h1 className="font-serif text-5xl md:text-7xl text-[var(--weapon-color)] drop-shadow-[0_0_15px_var(--weapon-glow)] transition-colors duration-700">月光低语</h1>
-          <h2 className="font-sans text-xl tracking-widest text-white/60">ALUNE'S WHISPERS (AUDIO)</h2>
+          <h2 className="font-sans text-xl tracking-widest text-white/60">ALUNE&apos;S WHISPERS (AUDIO)</h2>
         </div>
 
         <p className="text-white/70 font-sans mt-4 max-w-2xl leading-relaxed">
@@ -82,7 +82,7 @@ export default function AudioPage() {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xs text-[var(--weapon-color)] font-sans tracking-widest uppercase mb-1">{line.type}</span>
-                <p className="text-lg md:text-xl font-serif text-[var(--color-moon)] group-hover:text-white transition-colors duration-300">"{line.en}"</p>
+                <p className="text-lg md:text-xl font-serif text-[var(--color-moon)] group-hover:text-white transition-colors duration-300">&ldquo;{line.en}&rdquo;</p>
                 <p className="text-sm text-white/50 font-sans tracking-widest">“{line.zh}”</p>
               </div>
             </div>
