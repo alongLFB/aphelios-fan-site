@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-targon: #0B0C10;
+  --color-moon: #E2E8F0;
+  
+  --color-weapon-base: var(--weapon-color);
+  --color-weapon-spirit: #9D4EDD;
+  
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cinzel);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --weapon-color: #9D4EDD;
+    --weapon-glow: rgba(157, 78, 221, 0.5);
+  }
+
+  [data-weapon-theme="calibrum"] {
+    --weapon-color: #10B981;
+    --weapon-glow: rgba(16, 185, 129, 0.5);
+  }
+
+  [data-weapon-theme="severum"] {
+    --weapon-color: #EF4444;
+    --weapon-glow: rgba(239, 68, 68, 0.5);
+  }
+
+  [data-weapon-theme="gravitum"] {
+    --weapon-color: #8B5CF6;
+    --weapon-glow: rgba(139, 92, 246, 0.5);
+  }
+
+  [data-weapon-theme="infernum"] {
+    --weapon-color: #0EA5E9;
+    --weapon-glow: rgba(14, 165, 233, 0.5);
+  }
+
+  [data-weapon-theme="crescendum"] {
+    --weapon-color: #F8FAFC;
+    --weapon-glow: rgba(248, 250, 252, 0.5);
+  }
+
+  body {
+    background-color: var(--color-targon);
+    color: var(--color-moon);
+    font-family: var(--font-inter), sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .shadow-weapon-glow {
+    box-shadow: 0 0 20px var(--weapon-glow);
+  }
+  .text-glow {
+    text-shadow: 0 0 10px var(--weapon-glow);
+  }
+  .bg-weapon {
+    background-color: var(--weapon-color);
+  }
+  .text-weapon {
+    color: var(--weapon-color);
+  }
+  .border-weapon {
+    border-color: var(--weapon-color);
+  }
 }
