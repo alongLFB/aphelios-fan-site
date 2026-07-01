@@ -42,7 +42,7 @@ export default function MechanicsPage() {
               <p className="text-white/50 text-xs uppercase tracking-wider mb-1">攻击距离 (Range)</p>
               <p className="text-2xl font-serif text-[var(--weapon-color)] drop-shadow-[0_0_5px_var(--weapon-glow)]">550</p>
             </div>
-            <div className="bg-white/5 p-4 rounded-lg border border-[var(--weapon-color)]/20 hover:border-[var(--weapon-color)] transition-colors md:col-span-2">
+            <div className="bg-white/5 p-4 rounded-lg border border-[var(--weapon-color)]/20 hover:border-[var(--weapon-color)] transition-colors col-span-2 md:col-span-2">
               <p className="text-white/50 text-xs uppercase tracking-wider mb-1">基础攻速 (Base AS)</p>
               <p className="text-2xl font-serif text-white">0.665 <span className="text-sm text-yellow-400 font-sans">+2.1%</span></p>
             </div>

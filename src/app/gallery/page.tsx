@@ -70,12 +70,12 @@ export default function GalleryPage() {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md"
             onClick={() => setSelectedIdx(null)}
           >
-            <button className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2 bg-white/5 rounded-full backdrop-blur-lg">
-              <X size={32} />
+            <button className="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white transition-colors p-2 bg-white/5 rounded-full backdrop-blur-lg z-10">
+              <X className="w-6 h-6 md:w-8 md:h-8" />
             </button>
 
-            <button onClick={handlePrev} className="absolute left-4 md:left-12 text-white/50 hover:text-[var(--weapon-color)] transition-colors p-4 bg-black/40 rounded-full hover:bg-white/5 hover:scale-110 transform duration-300">
-              <ChevronLeft size={48} />
+            <button onClick={handlePrev} className="absolute left-2 md:left-12 text-white/50 hover:text-[var(--weapon-color)] transition-colors p-2 md:p-4 bg-black/40 rounded-full hover:bg-white/5 hover:scale-110 transform duration-300 z-10">
+              <ChevronLeft className="w-6 h-6 md:w-12 md:h-12" />
             </button>
 
             <motion.div 
@@ -95,8 +95,8 @@ export default function GalleryPage() {
               </div>
             </motion.div>
 
-            <button onClick={handleNext} className="absolute right-4 md:right-12 text-white/50 hover:text-[var(--weapon-color)] transition-colors p-4 bg-black/40 rounded-full hover:bg-white/5 hover:scale-110 transform duration-300">
-              <ChevronRight size={48} />
+            <button onClick={handleNext} className="absolute right-2 md:right-12 text-white/50 hover:text-[var(--weapon-color)] transition-colors p-2 md:p-4 bg-black/40 rounded-full hover:bg-white/5 hover:scale-110 transform duration-300 z-10">
+              <ChevronRight className="w-6 h-6 md:w-12 md:h-12" />
             </button>
           </motion.div>
         )}

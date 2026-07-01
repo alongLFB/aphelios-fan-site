@@ -17,7 +17,7 @@ export default function LorePage() {
             在巨神峰高耸入云的陡峭坡岸上，皎月教派的信徒们在夜空中寻找着指引。厄斐琉斯和他的双胞胎妹妹拉露恩就在这里诞生。他们被称为“夜月之子”，出生于一次极其罕见的月相期间——精神领域的月亮与现实世界的月亮在夜空中重叠，被称为“月蚀”。
           </p>
 
-          <div className="my-10 h-64 border-l-4 border-[var(--weapon-color)] pl-8 flex flex-col justify-center bg-gradient-to-r from-[var(--weapon-color)]/10 to-transparent rounded-r-xl transition-colors duration-700">
+          <div className="my-10 min-h-[16rem] py-6 border-l-4 border-[var(--weapon-color)] pl-8 flex flex-col justify-center bg-gradient-to-r from-[var(--weapon-color)]/10 to-transparent rounded-r-xl transition-colors duration-700">
             <h3 className="text-3xl font-serif text-[var(--color-moon)]">夜绽之毒 (The Noctum)</h3>
             <p className="text-white/70 mt-4 leading-relaxed">
               为了保护被烈阳教派迫害的同胞，厄斐琉斯饮下了致命的“夜绽之毒”（Noctum）。这种由罕见花朵制成的毒药夺走了他的声音，让他痛不欲生，但也让他的精神敞开，能够接收到远在精神领域（马鲁斯·奥米格纳神庙）的拉露恩的声音。

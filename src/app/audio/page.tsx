@@ -67,7 +67,7 @@ export default function AudioPage() {
               onClick={() => togglePlay(idx, line.file)}
               className={`flex items-center gap-6 p-4 md:p-6 rounded-2xl bg-black/40 border border-white/5 transition-colors duration-500 group ${line.file ? 'hover:border-[var(--weapon-color)]/50 cursor-pointer' : 'opacity-70'}`}
             >
-              <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${activeVoice === idx ? 'border-[var(--weapon-color)] bg-[var(--weapon-color)]/20 shadow-[0_0_15px_var(--weapon-glow)]' : 'border-white/20'}`}>
+              <div className={`flex-shrink-0 w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${activeVoice === idx ? 'border-[var(--weapon-color)] bg-[var(--weapon-color)]/20 shadow-[0_0_15px_var(--weapon-glow)]' : 'border-white/20'}`}>
                 {activeVoice === idx ? (
                   <Pause size={20} className="text-[var(--color-moon)]" fill="currentColor" />
                 ) : (
