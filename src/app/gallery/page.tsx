@@ -53,7 +53,7 @@ export default function GalleryPage() {
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                 <div className="flex flex-col">
                   <span className="text-white font-serif text-xl tracking-wider z-10 drop-shadow-md">{item.title}</span>
-                  <span className="text-[var(--weapon-color)] text-sm font-sans mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_5px_var(--weapon-glow)]">{item.desc}</span>
+                  <span className="text-[var(--weapon-color)] text-sm font-sans mt-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_5px_var(--weapon-glow)]">{item.desc}</span>
                 </div>
                 <span className="text-white/40 text-xs font-mono">{item.date}</span>
               </div>
