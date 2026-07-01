@@ -89,3 +89,39 @@ src/
 └── context/
     └── WeaponContext.tsx  # 武器全局状态管理器 (HTML theme-data 绑定)
 ```
+
+---
+
+## 🖼️ 宣传截图与展示 (Screenshots & Mockups)
+
+### 🎨 宣传设计概念图 (Promotional Design Mockups)
+> 包含中英文双版本的概念性页面设计展示。
+
+| 中文版 (Chinese Version) | 英文版 (English Version) |
+| --- | --- |
+| ![Homepage Chinese](public/screenshots/promo_homepage_desktop_zh.png) | ![Homepage English](public/screenshots/promo_homepage_desktop_en.png) |
+| ![Weapons Chinese](public/screenshots/promo_weapons_mechanics_zh.png) | ![Weapons English](public/screenshots/promo_weapons_mechanics_en.png) |
+
+---
+
+### 💻 实际网页截图 (Live Site Screenshots)
+> 在浏览器中运行本项目的真实截图展示。
+
+- **主入口导航页 (Sanctuary - Default & Green Themes)**
+  
+  ![Sanctuary Default Theme](public/screenshots/home_page.png)
+  *默认暗黑主题视觉*
+
+  ![Sanctuary Green Theme](public/screenshots/green_theme.png)
+  *切换通碧（Calibrum）后的绿色发光环境主题视觉*
+
+- **月光低语 (Audio Player)**
+  
+  ![Audio Whispers Page](public/screenshots/audio_page.png)
+  *Alune 中英文语音卡片列表与优化后的播放按钮*
+
+- **皮肤图鉴 (Skins Gallery Modal)**
+  
+  ![Skins Gallery Preview](public/screenshots/gallery_overlay.png)
+  *新增的至臻 灵魂莲华温泉 (Prestige Spirit Blossom Springs) 皮肤大图弹窗预览与优化后的导航控件*
+
