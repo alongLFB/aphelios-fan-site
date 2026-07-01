@@ -6,16 +6,16 @@ import { useState, useRef } from "react";
 import { Play, Pause } from "lucide-react";
 
 const VOICE_LINES = [
-  { en: "This will be your voice.", zh: "这将是你的声音。", type: "Pick", file: "/audio/voice.ogg" },
+  { en: "This will be your voice.", zh: "这将是你的声音。", type: "Pick", file: "/audio/voice.mp3" },
   { en: "So many weapons, Aphelios. The deadliest is your faith.", zh: "武器如此之多，厄斐琉斯。但最致命的是你的信仰。", type: "Move", file: "" },
   { en: "Every weapon, a syllable.", zh: "每一把武器，都是一个音节。", type: "Attack", file: "" },
   { en: "They are the cult of the sun, but you are the weapon of the moon.", zh: "他们是烈阳的狂热者，而你是皎月的利刃。", type: "Move", file: "" },
-  { en: "I am with you!", zh: "我与你同在！", type: "Ultimate (Moonlight Vigil)", file: "/audio/ult.ogg" },
-  { en: "Calibrum.", zh: "通碧。", type: "Weapon Switch", file: "/audio/calibrum.ogg" },
-  { en: "Severum.", zh: "断魄。", type: "Weapon Switch", file: "/audio/severum.ogg" },
-  { en: "Gravitum.", zh: "坠明。", type: "Weapon Switch", file: "/audio/gravitum.ogg" },
-  { en: "Infernum.", zh: "荧焰。", type: "Weapon Switch", file: "/audio/infernum.ogg" },
-  { en: "Crescendum.", zh: "折镜。", type: "Weapon Switch", file: "/audio/crescendum.ogg" }
+  { en: "I am with you!", zh: "我与你同在！", type: "Ultimate (Moonlight Vigil)", file: "/audio/ult.mp3" },
+  { en: "Calibrum.", zh: "通碧。", type: "Weapon Switch", file: "/audio/calibrum.mp3" },
+  { en: "Severum.", zh: "断魄。", type: "Weapon Switch", file: "/audio/severum.mp3" },
+  { en: "Gravitum.", zh: "坠明。", type: "Weapon Switch", file: "/audio/gravitum.mp3" },
+  { en: "Infernum.", zh: "荧焰。", type: "Weapon Switch", file: "/audio/infernum.mp3" },
+  { en: "Crescendum.", zh: "折镜。", type: "Weapon Switch", file: "/audio/crescendum.mp3" }
 ];
 
 export default function AudioPage() {
@@ -24,26 +24,32 @@ export default function AudioPage() {
 
   const togglePlay = (idx: number, file: string) => {
     if (!file) return; // Do nothing if there's no audio file
+    
     if (activeVoice === idx) {
-      audioRef.current?.pause();
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
       setActiveVoice(null);
-    } else {
-      if (audioRef.current) {
-        audioRef.current.src = file;
-        audioRef.current.play();
-      } else {
-        const audio = new Audio(file);
-        audioRef.current = audio;
-        audio.play();
-      }
-      setActiveVoice(idx);
-      
-      if (audioRef.current) {
-        audioRef.current.onended = () => {
-          setActiveVoice(null);
-        };
-      }
+      return;
     }
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+
+    // Instantiating a new Audio object inside the click event callback is required by iOS Safari gesture authorization
+    const audio = new Audio(file);
+    audioRef.current = audio;
+
+    audio.onended = () => {
+      setActiveVoice(null);
+    };
+
+    audio.play().catch((err) => {
+      console.error("Playback failed: ", err);
+    });
+
+    setActiveVoice(idx);
   };
 
   return (
